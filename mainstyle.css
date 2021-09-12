@@ -31,11 +31,13 @@ body{
 .taskslist{
     background-color: #fff;
     padding: 0.7rem;
-    display: none;
-    width: 400px;
+    display: block;
+    min-width: 350px;
+    max-width: 400px;
     max-height: 500px;
     margin-top: 1.2rem;
     overflow:scroll;
+    visibility: hidden;
 }
 
 .invisible{
@@ -106,7 +108,7 @@ body{
 }
 
 .tlvisible{
-    display: block;
+    visibility: visible;
 }
 
 .task{
@@ -128,6 +130,7 @@ body{
     font-weight: 500;
     max-width: 28ch;
     overflow-wrap: break-word;
+    pointer-events: none;
 }
 
 .btn-task{

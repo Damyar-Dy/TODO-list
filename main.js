@@ -4,6 +4,26 @@ let btnPopup = document.querySelector('#btn-popup')
 let popup = document.querySelectorAll('.popup')[0];
 let tasksList = document.querySelectorAll('.taskslist')[0];
 
+tasksList.addEventListener('click', (e) =>{
+    const item = e.target;
+    const itemText = item.querySelector('p');
+    if(item.classList[0] === 'task'){
+        itemText.classList.toggle('completed');
+    }
+    
+})
+
+tasksList.addEventListener('click', (e) =>{
+    const item = e.target;
+    if(item.classList[0] === 'btn-task'){
+        item.parentElement.remove();
+    }
+
+    if(tasksList.children.length === 0){
+        tasksList.classList.remove('tlvisible');
+    }
+})
+
 btnAddtask.addEventListener('click', () =>{
     if(textbox.value == ''){
         popup.classList.remove('invisible');
@@ -15,26 +35,21 @@ btnAddtask.addEventListener('click', () =>{
 
         task = document.createElement('div');
         task.classList.add('task');
+
         taskText = document.createElement('p');
+        taskText.classList.add('taskInnerText');
+        taskText.innerText = textbox.value;
+
         taskBtn = document.createElement('button');
         taskBtn.classList.add('btn-task');
         taskBtn.innerText = 'X';
-        taskText.innerText = textbox.value;
-        textbox.value = '';
+
         task.appendChild(taskText);
         task.appendChild(taskBtn);
+
         tasksList.appendChild(task);
-
-        task.addEventListener('click', () =>{
-            for( let x in tasksList.childNodes){
-                taskText.classList.toggle('completed');
-            }
-        })
+        textbox.value = '';
     }
-
-    taskBtn.addEventListener('click', () =>{
-        tasksList.removeChild(task);
-    })
 });
 
 btnPopup.addEventListener('click', () =>{
