@@ -30,7 +30,6 @@ body{
 
 .taskslist{
     background-color: #fff;
-    border-radius: 20px;
     padding: 0.7rem;
     display: none;
     width: 400px;
@@ -77,16 +76,16 @@ body{
     height: 120px;
     top: 20%;
     border-radius: 1rem;
-    background-color: rgb(247, 2, 255);
+    background-color: #fff;
     text-align: center;
-    border: 1.5px solid #fff;
+    border: 1.5px solid #000;
 }
 
 .popup > p{
     position: absolute;
     bottom: 40px;
-    left: 25px;
-    color: #fff;
+    left: 20px;
+    color: #000;
     font-size: 1.2rem;
     font-weight: bold;
 }
@@ -103,7 +102,7 @@ body{
     font-size: 1.2rem;
     cursor: pointer;
     font-weight: bold;
-    color: #fff;
+    color: #000;
 }
 
 .tlvisible{
@@ -120,7 +119,8 @@ body{
     margin: 1rem auto;
     padding: 1rem 0;
     padding: 0.5rem;
-    
+    cursor: pointer;
+    box-shadow: 0 0 8px #000;
 }
 
 .task > p{
@@ -139,6 +139,7 @@ body{
     cursor: pointer;
     font-size: 2rem;
 }
-.complited > p{
+.completed{
     text-decoration: line-through;
+    color: rgb(139, 132, 132);
 }

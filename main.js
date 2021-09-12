@@ -9,32 +9,32 @@ btnAddtask.addEventListener('click', () =>{
         popup.classList.remove('invisible');
     }
     else{
+        popup.classList.add('invisible');
+
         tasksList.classList.add('tlvisible');
-        tasksList.innerHTML += `
-        <div class="task">
-            <p>${textbox.value}</p>
-            <button class="btn-task">X</button>
-        </div>
-        `;
 
-        textbox.value == '';
+        task = document.createElement('div');
+        task.classList.add('task');
+        taskText = document.createElement('p');
+        taskBtn = document.createElement('button');
+        taskBtn.classList.add('btn-task');
+        taskBtn.innerText = 'X';
+        taskText.innerText = textbox.value;
+        textbox.value = '';
+        task.appendChild(taskText);
+        task.appendChild(taskBtn);
+        tasksList.appendChild(task);
 
-        let btnTask = document.querySelectorAll('btn-task');
-        for(let i=0; i< btnTask.length; i++){
-
-            btnTask[i].addEventListener('click', () =>{
-                btnTask[i].parentNode.remove();
-            });
-        }
-
-        let task = document.querySelectorAll('.task');
-        for(let i=0; i<task.length; i++){
-            task[i].addEventListener('click', () =>{
-                task[i].classList.toggle('completed');
-            });
-        }
-
+        task.addEventListener('click', () =>{
+            for( let x in tasksList.childNodes){
+                taskText.classList.toggle('completed');
+            }
+        })
     }
+
+    taskBtn.addEventListener('click', () =>{
+        tasksList.removeChild(task);
+    })
 });
 
 btnPopup.addEventListener('click', () =>{
